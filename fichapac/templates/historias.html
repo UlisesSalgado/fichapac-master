@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center display-3 py-5">Listado de consultas</h1>
+            
+            <div class="display-flex-center">
+                <form action="/filtrar_historias/" method="GET">
+                    {% csrf_token %}
+                    {{form.as_table}}
+                    <input type="integer" name="dni" placeholder="DNI del Paciente">
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+            
+            <ul class="list-group">
+                {% for historia in historias %}
+                <a class="list-group-item" href="{% url 'historia_detail' historia.id %}">
+                    <header class="d-flex justify-content-between">
+                        
+                        <h1 class="fw-bold text-success"> {{historia.paciente}} </h1>
+                        
+                        <h2 class="fw-bold"> {{historia.descripcion}} </h2>
+                        
+                    </header>
+                        
+                    <p>{{historia.datecompleted|date:'M j Y:i'}}</p>
+                    
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+
+
+
+

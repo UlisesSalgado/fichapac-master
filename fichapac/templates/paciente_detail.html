@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            {{error}}
+
+            <form method="POST" class="card card-body text-left">
+                <h1 class="text-secondary">{{pacinte.nombre}}</h1>
+                {% csrf_token %}
+                {{form.as_table}}
+                <button class="btn btn-primary">
+                    Actualizar paciente
+                </button>
+            </form>
+            <form action="{% url 'delete_paciente' paciente.id %}" method="POST" class="card card-body">
+                {% csrf_token %}
+                <button class="btn btn-danger">
+                    Eliminar paciente
+                </button>
+            </form>
+            
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+

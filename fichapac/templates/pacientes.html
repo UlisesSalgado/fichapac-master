@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center display-3 py-5">Listado de pacientes</h1>
+
+            <ul class="list-group">
+                {% for paciente in pacientes %}
+                <a class="list-group-item" href="{% url 'paciente_detail' paciente.id %}">
+                    <header class="d-flex justify-content-between">
+                        {% if paciente.important %}
+                        <h1 class="fw-bold text-success"> {{paciente.nombre}} {{paciente.apellido}} </h1>
+                        {% else %}
+                        <h1 class="fw-bold"> {{paciente.nombre}} {{paciente.apellido}} </h1>
+                        {% endif %}
+                        <p> {{paciente.dni}} {{paciente.obrasocial}} </p>
+                    </header>
+                        
+                    
+                    
+                    <p>{{paciente.datecompleted|date:'M j Y:i'}}</p>
+                    
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

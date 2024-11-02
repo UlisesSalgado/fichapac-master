@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      
+      {{error}}
+      <form action="/añadir_consulta/" method="POST" class="card card-body text-left">
+        <h1 class="text-center display-3 py-5">Añadir consulta</h1>
+        {% csrf_token %}
+        {{form.as_table}}
+  
+        <button class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
