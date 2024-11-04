@@ -4,7 +4,16 @@
 <main class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h1 class="text-center display-3 py-5">Listado de pacientes</h1>
+            <h1 class="fw-bold text-center display-3 py-5">Listado de pacientes</h1>
+
+            <div class="card card-body bs-primary-bg-subtle">
+                <form action="/filtrar_pacientes/" method="GET">
+                    {% csrf_token %}
+                    {{form.as_table}}
+                    <input type="text" name="apellido" placeholder="Apellido del Paciente" class="card-header bs-primary-bg-subtle">
+                    <button type="submit" class="btn btn-outline-primary">Buscar</button>
+                </form>
+            </div>
 
             <ul class="list-group">
                 {% for paciente in pacientes %}

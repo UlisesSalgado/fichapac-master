@@ -24,6 +24,7 @@ urlpatterns = [
     path('registrarse/', views.registrarse, name='registrarse'),
     path('cerrar_sesion/', views.cerrar_sesion, name='cerrar_sesion'),
     path('iniciar_sesion/', views.iniciar_sesion, name='iniciar_sesion'),
+    path('filtrar_pacientes/', views.filtrar_pacientes, name='filtrar_pacientes'),
     
     # paths de pacientes
     
@@ -39,6 +40,7 @@ urlpatterns = [
     path('historias/<int:historia_id>', views.historia_detail, name='historia_detail'),
     path('historias/<int:historia_id>/delete', views.delete_historia, name='delete_historia'),
     path('filtrar_historias/', views.filtrar_historias, name='filtrar_historias'),
+    path('filtrar_historias_ape/', views.filtrar_historias_ape, name='filtrar_historias_ape'),
 ]
 
 

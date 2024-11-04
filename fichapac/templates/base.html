@@ -21,17 +21,23 @@
                   <a href="/" class="nav-link">Home</a>
                 </li>
                 {% if user.is_authenticated %}
-                <li class="nav-item">
-                  <a href="{% url 'pacientes' %}" class="nav-link">Pacientes</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Pacientes
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'pacientes' %}">Listado de Pacientes</a></li>
+                    <li><a class="dropdown-item" href="{% url 'añadir_paciente' %}">Añadir paciente</a></li>
+                  </ul>
                 </li>
-                <li class="nav-item">
-                  <a href="{% url 'añadir_paciente' %}" class="nav-link">Añadir paciente</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{% url 'historias' %}" class="nav-link">Historias clínicas</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{% url 'añadir_consulta' %}" class="nav-link">Añadir consulta</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Historias clínicas
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'historias' %}">Listado de consultas</a></li>
+                    <li><a class="dropdown-item" href="{% url 'añadir_consulta' %}">Añadir consulta</a></li>
+                  </ul>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/cerrar_sesion">Cerrar sesión</a>

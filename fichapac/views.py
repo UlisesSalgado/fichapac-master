@@ -105,6 +105,16 @@ def delete_paciente(request, paciente_id):
         paciente.delete()
         return redirect('pacientes')
         
+@login_required
+def filtrar_pacientes(request):
+    apellido = request.GET.get('apellido', '')
+    if apellido:
+        pacientes = Paciente.objects.filter(user=request.user, apellido__icontains=apellido)
+    else: 
+        pacientes = Paciente.objects.filter(user=request.user)
+    
+    return render(request, 'pacientes.html', {'pacientes': pacientes})
+
 
 # Creacion de historias clinicas, añadir, eliminar, etc.
 
@@ -165,3 +175,12 @@ def filtrar_historias(request):
     
     return render(request, 'historias.html', {'historias': historias})
 
+@login_required
+def filtrar_historias_ape(request):
+    apellido = request.GET.get('apellido', '')
+    if apellido:
+        historias = HistoriaClinica.objects.filter(user=request.user, paciente__apellido__icontains=apellido)
+    else: 
+        historias = HistoriaClinica.objects.filter(user=request.user)
+    
+    return render(request, 'historias.html', {'historias': historias})

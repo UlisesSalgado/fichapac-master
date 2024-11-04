@@ -8,7 +8,7 @@
             {{error}}
 
             <form method="POST" class="card card-body text-left">
-                <h1 class="text-secondary">{{pacinte.nombre}}</h1>
+                <h1 class="text-secondary">{{paciente.nombre}} {{paciente.apellido}}</h1>
                 {% csrf_token %}
                 {{form.as_table}}
                 <button class="btn btn-primary">
@@ -27,4 +27,3 @@
 </main>
 
 {% endblock %}
-

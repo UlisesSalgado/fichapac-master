@@ -8,7 +8,7 @@
   
       {{error}}
       <form action="/añadir_paciente/" method="POST" class="card card-body text-left">
-        <h1 class="text-center display-3 py-5">Añadir paciente</h1>
+        <h1 class="fw-bold text-center display-3 py-5">Añadir paciente</h1>
         {% csrf_token %}
         {{form.as_table}}
   

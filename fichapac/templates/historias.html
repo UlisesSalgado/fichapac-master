@@ -4,17 +4,24 @@
 <main class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h1 class="text-center display-3 py-5">Listado de consultas</h1>
+            <h1 class="fw-bold text-center display-3 py-5">Listado de consultas</h1>
             
-            <div class="display-flex-center">
+            <div class="card card-body bs-primary-bg-subtle">
                 <form action="/filtrar_historias/" method="GET">
                     {% csrf_token %}
                     {{form.as_table}}
-                    <input type="integer" name="dni" placeholder="DNI del Paciente">
-                    <button type="submit">Buscar</button>
+                    <input type="integer" name="dni" placeholder="DNI del Paciente" class="card-header bs-primary-bg-subtle">
+                    <button type="submit" class="btn btn-outline-primary">Buscar</button>
+                </form>
+                
+                <form action="/filtrar_historias_ape/" method="GET">
+                    {% csrf_token %}
+                    {{form.as_table}}
+                    <input type="text" name="apellido" placeholder="Apellido del Paciente" class="card-header bs-primary-bg-subtle">
+                    <button type="submit" class="btn btn-outline-primary">Buscar</button>
                 </form>
             </div>
-            
+
             <ul class="list-group">
                 {% for historia in historias %}
                 <a class="list-group-item" href="{% url 'historia_detail' historia.id %}">
@@ -36,8 +43,3 @@
 </main>
 
 {% endblock %}
-
-
-
-
-
