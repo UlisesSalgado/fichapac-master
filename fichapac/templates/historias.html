@@ -4,27 +4,27 @@
 <main class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h1 class="fw-bold text-center display-3 py-5">Listado de consultas</h1>
+            <h1 class="fw-bold text-center display-3 py-5" style="color: whitesmoke;">Listado de consultas</h1>
             
-            <div class="card card-body bs-primary-bg-subtle">
+            <div class="card card-body" style="border-color: rgb(4, 63, 4);">
                 <form action="/filtrar_historias/" method="GET">
                     {% csrf_token %}
                     {{form.as_table}}
-                    <input type="integer" name="dni" placeholder="DNI del Paciente" class="card-header bs-primary-bg-subtle">
-                    <button type="submit" class="btn btn-outline-primary">Buscar</button>
+                    <input type="integer" name="dni" placeholder="DNI del Paciente" class="card-header bs-success-bg-subtle">
+                    <button type="submit" class="btn btn-outline-success">Buscar</button>
                 </form>
                 
                 <form action="/filtrar_historias_ape/" method="GET">
                     {% csrf_token %}
                     {{form.as_table}}
-                    <input type="text" name="apellido" placeholder="Apellido del Paciente" class="card-header bs-primary-bg-subtle">
-                    <button type="submit" class="btn btn-outline-primary">Buscar</button>
+                    <input type="text" name="apellido" placeholder="Apellido del Paciente" class="card-header bs-success-bg-subtle">
+                    <button type="submit" class="btn btn-outline-success">Buscar</button>
                 </form>
             </div>
 
-            <ul class="list-group">
+            <ul class="list-group" style="border-color: lightgreen;">
                 {% for historia in historias %}
-                <a class="list-group-item" href="{% url 'historia_detail' historia.id %}">
+                <a class="list-group-item" href="{% url 'historia_detail' historia.id %}" style="border-color: rgb(4, 63, 4); background-color: rgb(184, 240, 184);">
                     <header class="d-flex justify-content-between">
                         
                         <h1 class="fw-bold text-success"> {{historia.paciente}} </h1>

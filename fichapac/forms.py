@@ -13,6 +13,14 @@ class PacienteForm(ModelForm):
         widgets = {
             'datecompleted' : DateInput()
         }
+        labels = {
+            'datecompleted' : 'Fecha de alta',
+            'nombre' : 'Nombres',
+            'telefono' : 'Teléfono',
+            'obrasocial' : 'Obra social',
+            'numafiliado' : 'Número de afiliado',
+            'important' : 'Paciente importante',
+        }
 
 class HistoriaForm(ModelForm):
     class Meta:
@@ -20,4 +28,9 @@ class HistoriaForm(ModelForm):
         fields = ['paciente', 'descripcion', 'diagnostico', 'datecompleted']
         widgets = {
             'datecompleted' : DateInput()
+        }
+        labels = {
+            'datecompleted' : 'Fecha consulta',
+            'descripcion' : 'Descripción',
+            'diagnostico' : 'Diagnóstico',
         }

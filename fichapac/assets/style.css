@@ -1,6 +1,6 @@
 /*-**********-Custom Properties-**********-*/
 :root {
-    --first-color: #579aff;
+    --first-color: #43a70a;
     --first-alpha-color: rgba(0, 132, 255, 0.75);
     --second-color: #14192d;
     --second-alpha-color: rgba(20,25,45,0.75);
@@ -16,5 +16,14 @@
     --text-color: #222;
     --white-alpha-color: rgba(255,255,255,0.5);
     --black-alpha-color: rgba(0,0,0,0.5);
+}
+/*-**********-style="--hero-opacity-color: var(--black-alpha-color);"-**********-*/
+
+div{
+    color:#92e960
+}
+
+body {
+    color: #43a70a;
 }
 
